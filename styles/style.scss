@@ -1,0 +1,254 @@
+@import "media_mixin";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$mainTextColor: #fff;
+
+.body{
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://wallpapercave.com/wp/wp8773104.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+.container{
+  width: 1170px;
+  margin: auto;
+
+  @include _1170 {
+    width: 768px;
+  }
+  @include _768 {
+    width: 100%;
+  }
+
+}
+
+.header{
+  top: 0;
+  left: 0;
+  width: 100%;
+  &__container{
+    display: flex;
+    padding: 10px 10px 10px 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.logo{
+  font-size: 2em;
+  font-weight: 700;
+  color: $mainTextColor;
+  user-select: none;
+  cursor: pointer;
+}
+
+.menu{
+  &__checkbox{
+    margin: 0;
+    &:checked ~ &__body{
+      display: block;
+    }
+  }
+  &__label {
+    display: block;
+    cursor: pointer;
+    margin: -10px 10px 0 0;
+  }
+  &__icon{
+    display: none;
+    @include _768 {
+      display: block;
+      cursor: pointer;
+      background-color: white;
+      width: 25px;
+      height: 4px;
+      &:not(:last-child) {
+        margin-bottom: 4px;
+      }
+    }
+  }
+  &__body{
+    @include _768 {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      padding: 100px 30px 30px 30px;
+      transition: left 0.3s ease 0s;
+    }
+    &_active{
+      display: block;
+
+    }
+  }
+  &__list{
+    display: flex;
+    align-items: center;
+    @include _768 {
+      display: block;
+    }
+  }
+  &__item{
+    margin: 0 0 0 40px;
+    list-style-type: none;
+    @include _768 {
+      margin: 0 0 30px 0;
+    }
+  }
+  &__link{
+    position: relative;
+    font-size: 1.1em;
+    color: $mainTextColor;
+    font-weight: 500;
+    text-decoration: none;
+    @include _768 {
+      font-size: 1.5em;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 3px;
+      background: $mainTextColor;
+      border-radius: 5px;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform 0.5s;
+    }
+    &:hover::after{
+      transform-origin: left;
+      transform: scaleX(1);
+    }
+  }
+}
+
+.login-button{
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid $mainTextColor;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: $mainTextColor;
+  font-weight: 500;
+  transition: .5s;
+  &:hover{
+    background: $mainTextColor;
+    color: #162938;
+  }
+}
+
+.main{
+  flex: 1 1 auto;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.standart-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border: 1px solid $mainTextColor;
+    border-radius: 9px;
+    background-color: rgba(#000, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  &__title {
+    margin: 0 0 10px 0;
+    color: $mainTextColor;
+    font-size: 30px;
+    font-weight: 800;
+  }
+
+  &__label {
+    margin: 10px 0 10px 0;
+    color: $mainTextColor;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid $mainTextColor;
+    border-radius: 10px;
+    font-size: 14px;
+
+    &:focus {
+      outline: none;
+      border-color: #007bff;
+    }
+  }
+
+  &__button {
+    margin-top: 20px;
+    padding: 10px;
+  }
+}
+
+.register{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.article-list {
+  list-style: none;
+  margin: 50px 0 0 0;
+  padding: 0;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  padding: 30px;
+  border: 1px solid $mainTextColor;
+  border-radius: 9px;
+  background-color: rgba(#000, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  &__item{
+    margin: 0 0 30px 0;
+  }
+  &__image{
+    width: 100%;
+    object-fit: fill;
+  }
+  &__title{
+    color: $mainTextColor;
+    font-size: 2rem;
+  }
+  &__description{
+    color: $mainTextColor;
+    font-size: 1.2rem;
+    @include _768 {
+      font-size: 0.8rem;
+    }
+  }
+  &__link{
+    color: $mainTextColor;
+    padding: 0 0 20px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-bottom: 2px solid $mainTextColor;
+    text-decoration: none;
+  }
+}
