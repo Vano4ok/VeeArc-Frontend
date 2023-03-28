@@ -2,17 +2,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 $mainTextColor: #fff;
+$contentContainerColor: rgba(#000, 0.4);
 
 .body{
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
   background-size: cover;
   background-position: center;
-  background-image: url("https://wallpapercave.com/wp/wp8773104.jpg");
+  background-image: url("https://wallpaperaccess.com/full/4043532.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
+}
+
+.main{
+  padding: 25px 0 0 0;
 }
 
 .container{
@@ -46,18 +51,15 @@ $mainTextColor: #fff;
   color: $mainTextColor;
   user-select: none;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .menu{
-  &__checkbox{
-    margin: 0;
-    &:checked ~ &__body{
-      display: block;
-    }
-  }
-  &__label {
+  &__burger {
     display: block;
     cursor: pointer;
+    z-index: 5;
+    position: relative;
     margin: -10px 10px 0 0;
   }
   &__icon{
@@ -93,6 +95,7 @@ $mainTextColor: #fff;
   &__list{
     display: flex;
     align-items: center;
+    margin-top: 15px;
     @include _768 {
       display: block;
     }
@@ -131,9 +134,14 @@ $mainTextColor: #fff;
       transform: scaleX(1);
     }
   }
+
+  &__login{
+    text-decoration: none;
+  }
 }
 
 .login-button{
+  display: block;
   width: 130px;
   height: 50px;
   background: transparent;
@@ -162,14 +170,15 @@ $mainTextColor: #fff;
 }
 
 .standart-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px;
-    border: 1px solid $mainTextColor;
-    border-radius: 9px;
-    background-color: rgba(#000, 0.3);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  border: 1px solid $mainTextColor;
+  border-radius: 9px;
+  background-color: $contentContainerColor;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
   &__title {
     margin: 0 0 10px 0;
     color: $mainTextColor;
@@ -197,6 +206,18 @@ $mainTextColor: #fff;
     }
   }
 
+  &__link{
+    display: block;
+    color: $mainTextColor;
+    text-decoration: none;
+    margin: 10px 0 0 0;
+    transition: .5s;
+
+    &:hover{
+      color: #808080;
+    }
+  }
+
   &__button {
     margin-top: 20px;
     padding: 10px;
@@ -212,8 +233,6 @@ $mainTextColor: #fff;
 
 .article-list {
   list-style: none;
-  margin: 50px 0 0 0;
-  padding: 0;
 }
 
 .article {
@@ -223,7 +242,7 @@ $mainTextColor: #fff;
   padding: 30px;
   border: 1px solid $mainTextColor;
   border-radius: 9px;
-  background-color: rgba(#000, 0.3);
+  background-color: $contentContainerColor;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   &__item{
     margin: 0 0 30px 0;
@@ -250,5 +269,60 @@ $mainTextColor: #fff;
     font-weight: bold;
     border-bottom: 2px solid $mainTextColor;
     text-decoration: none;
+  }
+}
+
+.user-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+
+  &__item {
+    width: 33.33%;
+    padding: 10px;
+    box-sizing: border-box;
+
+    @include _768{
+      min-width: 100%;
+    }
+  }
+}
+
+.user {
+  border: 1px solid $mainTextColor;
+  border-radius: 9px;
+  background-color: $contentContainerColor;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+
+  &__role {
+    color: $mainTextColor;
+  }
+
+  &__nickname {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: $mainTextColor;
+  }
+}
+
+.footer{
+
+  &__container{
+    border: 1px solid $mainTextColor;
+    border-radius: 9px 9px 0 0;
+    background-color: $contentContainerColor;
+    padding: 30px 30px;
+    margin: 0 auto;
+
+    @include _768{
+      border-radius: 0;
+    }
+  }
+  &__rights{
+    font-size: 14px;
+    color: #999;
   }
 }
